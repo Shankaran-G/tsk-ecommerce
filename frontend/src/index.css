@@ -10,3 +10,9 @@
   max-width: 400px;
   width: 100%;
 }
+.rating span {
+  color: gold;
+}
+img.large {
+  max-width: 100%;
+}

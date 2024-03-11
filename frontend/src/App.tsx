@@ -1,7 +1,17 @@
-import { Container, Navbar, Nav, Row, Col } from 'react-bootstrap'
-import { smapleProducts } from './data'
+import { useContext, useEffect } from 'react'
+import { Container, Navbar, Nav } from 'react-bootstrap'
+import { Outlet } from 'react-router-dom'
+import { Store } from './Store'
 
 function App() {
+  const {
+    state: { mode },
+  } = useContext(Store)
+
+  useEffect(() => {
+    document.body.setAttribute('data-bs-theme', mode)
+  }, [mode])
+
   return (
     <div className="d-flex flex-column vh-100">
       <header>
@@ -21,19 +31,7 @@ function App() {
       </header>
       <main>
         <Container className="mt-3">
-          <Row>
-            {smapleProducts.map((product) => (
-              <Col key={product.slug} sm={6} md={4} lg={3}>
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="product-image"
-                />
-                <h2>{product.name}</h2>
-                <p>Rs.{product.price}</p>
-              </Col>
-            ))}
-          </Row>
+          <Outlet />
         </Container>
       </main>
       <footer>

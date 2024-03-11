@@ -55,7 +55,7 @@ export const sampleProducts: Product[] = [
     slug: 'Apple-MacBook-Pro',
     image: '../images/macbookpro.jpg',
     price: 400000,
-    countInStock: 10,
+    countInStock: 0,
     brand: 'Apple',
     rating: 4.9,
     numReviews: 20,
